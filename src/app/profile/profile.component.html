@@ -1,0 +1,57 @@
+<div id="wrapper">
+  <app-sidebar></app-sidebar>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-navbar></app-navbar>
+      <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h1 mb-0 text-gray-800 text-uppercase"><b>Profile</b></h1>
+        </div>
+        <hr style="height:20px;">
+        <div class="row">
+          <div class="col-lg-6 m-auto">
+            <div class="card border-dark mt-2">
+              <div class=" h5 card-header bg-success text-uppercase text-white text-center">
+                <b>Edit Profile</b>
+              </div>
+              <div class="card-body">
+                <form #xyz="ngForm">
+                  <div class="form-group">
+                    <label class="text-dark"><b>Name</b></label>
+                    <input type="text" name="Name" class="form-control" placeholder="Name" ngModel>
+                  </div>
+                  <div class="form-group">
+                    <label class="text-dark"><b>Email</b></label>
+                    <input type="email" name="Email" class="form-control" placeholder="Email" ngModel>
+                  </div>
+                  <div class="form-group">
+                    <label class="text-dark"><b>Date Of Birth</b></label>
+                    <input type="text" name="DOB" class="form-control" placeholder="DOB" ngModel>
+                  </div>
+                  <div class="form-group">
+                    <label class="text-dark"><b>Contact No.</b></label>
+                    <input type="text" name="Contact" class="form-control" placeholder="Contact No." ngModel>
+                  </div>
+                  <div style="text-align:center;">
+                    <button type="reset" class="h4 btn btn-primary text-uppercase text-center" (click)="addprofile(xyz)">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Page Heading -->
+
+      </div>
+    </div>
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy;<b>PocketFlash</b> 2019</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

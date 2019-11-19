@@ -1,0 +1,52 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="\admin">
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="fa fa-eercast"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">PocketFlash</div>
+  </a>
+
+  <hr class="sidebar-divider my-0">
+
+  <li class="nav-item active">
+    <a class="nav-link" routerLink="/admin">
+      <i class="fa fa-tachometer"></i>
+      <span  class="text-uppercase">Dashboard</span></a>
+  </li>
+
+  <hr class="sidebar-divider">
+
+  <div class="sidebar-heading">
+    Interface
+  </div>
+
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/userlist">
+      <i class="fa fa-users text-white"></i>
+      <span class="text-white"><b>USER LIST</b></span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/seereview">
+      <i class="fa fa-commenting text-white"></i>
+      <span class="text-white"><b>SEE REVIEWS</b></span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/noti">
+      <i class="fa fa-bell text-white"></i>
+      <span class="text-white"><b>SEND NOTIFICATIONS</b></span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link">
+      <i class="fa fa-fw fa-power-off text-white"></i>
+      <span  class="text-white" (click)="logout()"><b>LOGOUT</b></span></a>
+  </li>
+
+  <hr class="sidebar-divider d-none d-md-block">
+
+</ul>

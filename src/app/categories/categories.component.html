@@ -1,0 +1,130 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+      <app-navbar></app-navbar>
+      <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h1 mb-0 text-gray-800"><b>CATEGORY</b></h1>
+        </div>
+        <hr style="height:20px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card border-dark">
+              <div class=" h5 card-header bg-success text-white">
+                ADD CATEGORY
+              </div>
+              <div class="card-body">
+                <form #cd="ngForm">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="Title" class="form-control" placeholder="Category Name" ngModel
+                      aria-describedby="helpId">
+                  </div>
+                  <div style="text-align:center;">
+                  <button type="reset" class="h4 btn btn-primary text-center text-uppercase" (click)="addCat(cd)">Add Category</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card border-dark">
+              <div class=" h5 card-header bg-success text-white">
+                CATEGORY LIST
+              </div>
+              <div class="card-body">
+                <table class="table table-stripped">
+                  <thead class="bg-success text-white">
+                    <tr>
+                      <th>Category Name</th>
+                      <th>Manage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let k of allcategory"> 
+                      <td>{{k.Title}}</td>
+                      <td>
+                        <button class="btn btn-circle btn-primary" (click)="updatecat(k)" data-toggle="modal"
+                          data-target="#modelId"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-circle btn-danger ml-2" (click)="deleteCat(k.id)"><i
+                            class="fa fa-trash"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Page Heading -->
+
+      </div>
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy;<b>PocketFlash</b> 2019</span>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #cdd="ngForm">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="card border-left-success">
+              <div class="card-header">
+                Add Categories
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="text" name="id" class="form-control" style="display: none" ngModel={{id}}>
+                </div>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" name="Title" class="form-control" placeholder="Category Name" ngModel={{catname}}
+                    aria-describedby="helpId">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="editCat(cdd)" data-dismiss="modal">Update</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

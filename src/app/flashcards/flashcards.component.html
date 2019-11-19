@@ -1,0 +1,174 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Main Content -->
+    <div id="content">
+      <app-navbar></app-navbar>
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h1 mb-0 text-gray-800"><b>FLASHCARDS</b></h1>
+        </div>
+        <hr style="height:20px;">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card border-dark mt-2">
+              <div class=" h5 card-header bg-success text-uppercase text-white">
+                <b>Your Flashcards</b>
+                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#modelId">
+                  <i class="fa fa-plus"></i>&nbsp; Add New Flash Card
+                </button>
+              </div>
+              <div class="card-body">
+                <!-- <button class="btn btn-link" data-toggle="modal" data-target="#modelId1"> -->
+                <div class="row">
+                  <div class="col-lg-4 text-center" *ngFor="let k of allcard">
+                    <div class="text-white">
+                      <img src="assets/img/sticky.png" class="img-fluid" style="height: 250px;width: 250px">
+                      <div class="card-img-overlay">
+                        <button data-toggle="modal" data-target="#modelId1" class="btn btn-link"
+                          style="text-decoration: none;">
+                          <h2 class="text-center mt-5 text-secondary">{{k.Title}}</h2>
+                        </button>
+                        <div style="position:absolute;bottom: 20;left: 115;">
+                          <button class="btn text-white mb-0" style="background-color:transparent"
+                            (click)="updateCard(k)" data-toggle="modal" data-target="#modelId2"><i
+                              class="fa fa-edit text-dark"></i></button>
+                          <button class="btn " style="background-color:transparent" (click)="deleteCard(k.id)"><i
+                              class="fa fa-trash text-dark"></i></button>
+                          <button class="btn text-white" style="background-color:transparent">
+                            <i class="fa fa-share text-dark"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- </button> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Page Heading -->
+
+      </div>
+    </div>
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy; Your Website 2019</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Card</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #adcd="ngForm">
+          <div class="form-group">
+            <label>Card Title</label>
+            <input type="text" name="Title" class="form-control" placeholder="Title" ngModel>
+          </div>
+          <div class="form-group">
+            <label>Select Category</label>
+            <select class="form-control" name="Category" ngModel>
+              <option *ngFor="let k of allcategory" value="{{k.Title}}">{{k.Title}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Content</label>
+            <angular-editor name="Content" [config]="editorConfig" ngModel></angular-editor>
+          </div>
+          <div>
+              <audio controls="" *ngIf="url">
+                  <source [src]="sanitize(url)" type="audio/wav">
+              </audio>
+            <a (click)="initiateRecording()" *ngIf="!recording" class="btn text-white float-right" style="background-color:transparent">
+              <i class="fa fa-microphone text-dark"></i></a>
+              <a (click)="stopRecording()" *ngIf="recording" class="btn text-white float-right" style="background-color:transparent">
+                <i class="fa fa-microphone text-dark"></i></a>
+              <br>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="addCard(adcd)"
+            data-dismiss="modal">Add</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Card</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #ed="ngForm">
+          <div class="form-group">
+            <label>Card Title</label>
+            <input type="text" name="Title" class="form-control" placeholder="Title" ngModel={{Title}}>
+          </div>
+          <div class="form-group">
+            <label>Select Category</label>
+            <select class="form-control" name="Category" ngModel={{Category}}>
+              <option *ngFor="let k of allcard" value="{{k.Category}}">{{k.Category}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Content</label>
+            <angular-editor name="Content" [config]="editorConfig" ngModel={{Content}}></angular-editor>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="editCard(ed)"
+            data-dismiss="modal">Update</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" *ngFor="let k of allcard">
+        <h5>
+          {{k.Title}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngFor="let k of allcard">
+        {{k.Content}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updateCard(k)" data-toggle="modal"
+          data-target="#modelId2">Edit</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

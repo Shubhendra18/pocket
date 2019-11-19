@@ -1,0 +1,469 @@
+<header id="header">
+  <div class="container">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="#intro" class="scrollto"><i class="fa fa-eercast" aria-hidden="true">PocketFlash</i></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="assets/img/logo.png" alt="" title=""></a> -->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="#intro">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#more-features">Reviews</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+
+        <li *ngIf="authService.user | async as user; else showSignIn">
+          <a routerLink="/dashboard">Dashboard</a>
+          <a href="#" (click)="logout()">Log Out</a>
+        </li>
+        <ng-template #showSignIn>
+          <li><a routerLink="/login"><h6>Sign In</h6></a></li>
+        </ng-template>
+      </ul>
+    </nav><!-- #nav-menu-container -->
+
+
+  </div>
+</header><!-- #header -->
+
+<!--==========================
+      Intro Section
+    ============================-->
+<section id="intro">
+
+  <div class="intro-text">
+    <h2><b><i class="fa fa-graduation-cap" aria-hidden="true">&nbsp;PocketFlash</i></b></h2>
+    <p>The new way of learning....<br>
+      The only destination to thousands of flashcard...</p>
+    <a routerLink="/register" class="btn-get-started scrollto">Get Started</a>
+  </div>
+
+  <div class="product-screens">
+
+    <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
+      <img src="assets/img/a3.png" alt="">
+    </div>
+
+    <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
+      <img src="assets/img/a1.png" alt="">
+    </div>
+
+    <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
+      <img src="assets/img/a2.png" alt="">
+    </div>
+
+  </div>
+
+</section><!-- #intro -->
+
+<main id="main">
+
+  <!--==========================
+        About Us Section
+      ============================-->
+  <section id="about" class="section-bg">
+    <div class="container-fluid">
+      <div class="section-header">
+        <h3 class="section-title">About Us</h3>
+        <span class="section-divider"></span>
+        <p class="section-description">
+          PocketFlash is a simple platform that focuses on new learning ways of contemporary society.<br>
+          The user can get instant access to their thousands of flashcards within no time lapse once they created their
+          accounts.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 about-img wow fadeInLeft">
+          <img src="assets/img/a1.jpeg" alt="">
+        </div>
+
+        <div class="col-lg-6 content wow fadeInRight">
+          <h2>A classy tool to store your short notes in the form of flashcards.</h2>
+          <br>
+          <h5>
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> There comes a point in your learning efforts where you’ve
+                simply got to face the facts – literally – by acknowledging that memorising details are an essential
+                part
+                of many types of knowledge acquisition. PocketFlash is the perfect learning tool to help you retain
+                essential information, no matter what your subject, level, or field of study.
+              </li><br>
+              <li><i class="ion-android-checkmark-circle"></i> PocketFlash is perfect for learning important info
+                quickly!
+                Memorize verbs, grammar rules, historical dates, quotes, formulas and lots more.
+              </li><br>
+              <li><i class="ion-android-checkmark-circle"></i> The combination of text and visual elements enhances your
+                ability to recall information. You can easily add images to your flashcards – this has obvious benefits
+                for subjects such as art, but images can also help to reinforce your learning of text or numerical data
+                – such as key dates in history.</li>
+            </ul>
+          </h5>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #about -->
+
+  <!--==========================
+        Product Featuress Section
+      ============================-->
+  <section id="features">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-8 offset-lg-4">
+          <div class="section-header wow fadeIn" data-wow-duration="1s">
+            <h3 class="section-title">Product Features</h3>
+            <span class="section-divider"></span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-5 features-img">
+          <img src="assets/img/product-features.png" alt="" class="wow fadeInLeft">
+        </div>
+
+        <div class="col-lg-8 col-md-7 ">
+
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6 box wow fadeInRight">
+              <div class="icon"><i class="fa fa-tachometer"></i></div>
+              <h4 class="title"><a href="">Time Saving</a></h4>
+              <p class="description">Save your time while revising your content.</p>
+            </div>
+            <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.1s">
+              <div class="icon"><i class="fa fa-desktop"></i></div>
+              <h4 class="title"><a href="">Digital Learning.</a></h4>
+              <p class="description">Boost your interest in the content by memorizining it in the digital format.</p>
+            </div>
+            <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-bolt"></i></div>
+              <h4 class="title"><a href="">Free Access</a></h4>
+              <p class="description">No need to pay thousand of bucks to store your notes. PocketFlash is your
+                home to store lecture and notes.
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.3s">
+              <div class="icon"><i class="fa fa-share-alt-square"></i></div>
+              <h4 class="title"><a href="">Easy Sharing.</a></h4>
+              <p class="description"> PocketFlash provides accessibility to users to share their flash cards to other
+                users.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- #features -->
+
+  <section id="more-features" class="section-bg">
+    <div class="container">
+
+      <div class="section-header">
+        <h3 class="section-title">What Happy Customer Says?</h3>
+        <span class="section-divider"></span>
+        <p class="section-description">It's enormously cheering to get a good review by someone who seems to understand
+          our work.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <div class="icon"><i class="ion-ios-heart-outline"></i></div>
+            <h4 class="title"><a href="">Reyansh Aggarwal</a></h4>
+            <p class="description">Fabulous Application for creative learners in ease of time and affordable.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInRight">
+            <div class="icon"><i class="ion-ios-heart-outline"></i></div>
+            <h4 class="title"><a href="">Muhammad Sufi</a></h4>
+            <p class="description">A boost for teachers and working class too. We are able to manage our daily works so
+              easily.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <div class="icon"><i class="ion-ios-heart-outline"></i></div>
+            <h4 class="title"><a href="">Marco Ditch</a></h4>
+            <p class="description">Superb for enchancing our knowledge in innovative way with enjoyment and
+              satisfaction.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInRight">
+            <div class="icon"><i class="ion-ios-heart-outline"></i></div>
+            <h4 class="title"><a href="">Aarushi Saxena</a></h4>
+            <p class="description">It raises very much to my expectations, this time I have seen something technical
+              with non-technical benefits.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+        Gallery Section
+      ============================-->
+  <section id="gallery">
+    <div class="container-fluid">
+      <div class="section-header">
+        <h3 class="section-title">Gallery</h3>
+        <span class="section-divider"></span>
+        <p class="section-description">Here, we take a look at the best ways PocketFlash performs..<br>
+          Collection of beautiful pictures..
+        </p>
+      </div>
+
+      <div class="row no-gutters">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-1.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-1.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-2.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-2.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-3.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-3.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-4.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-4.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-5.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-5.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="gallery-item wow fadeInUp">
+            <a href="assets/img/gallery/gallery-6.jpg" class="gallery-popup">
+              <img src="assets/img/gallery/gallery-6.jpg" alt="">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #gallery -->
+
+  <!--==========================
+        Contact Section
+      ============================-->
+  <section id="contact">
+    <div class="container">
+      <div class="row wow fadeInUp">
+
+        <div class="col-lg-4 col-md-4">
+          <div class="contact-about">
+            <h3>PocketFlash</h3>
+            <p>The only platform that focuses on new ways of learning with the collection of thousands of flashcard.</p>
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="info">
+            <div>
+              <i class="ion-ios-location-outline"></i>
+              <p>A108, Red Street,<br>New Delhi, India.</p>
+            </div>
+
+            <div>
+              <i class="ion-ios-email-outline"></i>
+              <p>pocketflash@gmail.com</p>
+            </div>
+
+            <div>
+              <i class="ion-ios-telephone-outline"></i>
+              <p>+522 234 500 85</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-8">
+          <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm" #cd="ngForm">
+              <div class="form-row">
+                <div class="form-group col-lg-6">
+                  <input type="text" ngModel name="Name" class="form-control" id="name" placeholder="Your Name"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="email" ngModel class="form-control" name="Email" id="email" placeholder="Your Email"
+                    data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" ngModel class="form-control" name="Subject" id="subject" placeholder="Subject"
+                  data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" ngModel name="Message" rows="5" data-rule="required"
+                  data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+              <div class="text-center"><button class="btn btn-border-primary" (click)="addContact(cd)" type="reset"
+                  title="Send Message">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- #contact -->
+</main>
+<!--==========================
+      Footer
+    ============================-->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 text-lg-left text-center">
+        <div class="copyright">
+          &copy; Copyright <strong>PocketFlash</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by A&A Company
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+          <a href="#intro" class="scrollto">
+            <button type="button" class="btn btn-link">Home</button>
+          </a>
+          <a href="#about" class="scrollto">
+            <button type="button" class="btn btn-link ">About</button>
+          </a>
+          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modelId">
+            Privacy Policy
+          </button>
+          <a href="#"></a>
+          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modelId1">
+            Terms of Use
+          </button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Privacy Policy</b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Information You Provide Us</h5>
+        <p> When you register for a PocketFlash account, we may collect some personal information, such as your learning
+          goals, your date of birth, your Email or name, your personal bio. This information is optional and is only
+          used
+          to help personalize the product experience and our communications with you. The only required information is
+          your email address.</p>
+
+        <p> You may also be able to send information about our apps, products and services to your friends and family
+          members. In some of these cases, you may provide the name and email address of
+          your friend us, and such information will be treated securely, in accordance with this
+          Agreement.</p>
+
+        <p> If you provide information on your address or location, we may similarly retain this information throughout
+          your
+          time as a registered user.
+        </p>
+
+        <p> Finally, if you create educational content in Brainscape, this information is permanently stored on our
+          servers.
+          See "Data Retention" for information about removing educational content from our servers.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Terms & Conditions</b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        These Terms govern your use of PocketFlash, including our PWA applications, and the
+        Website(collectively, "the apps"), which are made available by A&A Company (“PocketFlash” or “we” or “us”).
+
+        Your privacy is important to us. These “Terms” and this “User Agreement” (the “Agreement”) outline the type of
+        information that is collected through the apps and how that information is used and protected. The “Agreement”
+        is a legal contract that describes the conditions under which users (“you”) are permitted to use the apps.
+
+        By using the website, you agree to be bound by this contract. If you do not accept the Agreement, please do not
+        use
+        the Product.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

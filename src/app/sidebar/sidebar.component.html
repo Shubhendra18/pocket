@@ -1,0 +1,59 @@
+
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fa fa-eercast"></i>
+      </div>
+      <div class="sidebar-brand-text mx-3">PocketFlash</div>
+    </a>
+  
+    <hr class="sidebar-divider my-0">
+  
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/dashboard">
+        <i class="fa fa-tachometer"></i>
+        <span class="text-white text-uppercase">Dashboard</span></a>
+    </li>
+  
+    <hr class="sidebar-divider">
+  
+    <div class="sidebar-heading">
+      Interface
+    </div>
+  
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/categories">
+        <i class="fa fa-fw fa-database text-white"></i>
+        <span class="text-white text-uppercase"><b>Manage Category</b></span>
+      </a>
+    </li>
+  
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/flashcards">
+        <i class="fa fa-clone text-white"></i>
+        <span class="text-white text-uppercase"><b>FlashCards</b></span>
+      </a>
+    </li>
+  
+    <hr class="sidebar-divider">
+  
+    <div class="sidebar-heading">
+      Addons
+    </div>
+  
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/suggestion">
+        <i class="fa fa-commenting text-white text-uppercase"></i>
+        <span class="text-white text-uppercase"><b>Review</b></span></a>
+    </li>
+  
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">
+        <i class="fa fa-fw fa-power-off text-white"></i>
+        <span  class="text-white text-uppercase" (click)="logout()" ><b>Logout</b></span></a>
+    </li>
+  
+    <hr class="sidebar-divider d-none d-md-block">
+  
+  </ul>

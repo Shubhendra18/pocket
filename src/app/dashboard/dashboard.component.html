@@ -1,0 +1,144 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <app-navbar></app-navbar>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h1 mb-0 text-gray-800-800"><b>DASHBOARD</b></h1>
+        </div>
+
+        <hr style="height:20px;">
+
+        <div class="row">
+
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow bg-success py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class=" font-weight-bold text-white text-uppercase mb-1"><a routerLink="/categories" class="text-white"><b>LIST OF CATEGORIES</b></a></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fa fa-cogs fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow bg-gradient-warning py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class=" font-weight-bold text-white text-uppercase mb-1"><a routerLink="/flashcards" class="text-white"><b>LIST OF FLASHCARDS</b></a></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fa fa-sticky-note fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow bg-gradient-info py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class=" font-weight-bold text-white text-uppercase mb-1"><a routerLink="/todo" class="text-white"><b>TO-DO LIST</b></a></div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fa fa-th-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow bg-secondary py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="font-weight-bold text-white text-uppercase mb-1">STARRED CARDS</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fa fa-star fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-dark">
+          <div class="h4 card-header bg-dark text-white text-center text-uppercase">
+            <h5>User Profile</h5>
+          </div>
+          <div class="card-body" *ngFor="let k of prof">
+            <table class="table" >
+              <tr>
+                <th class="text-dark">Name</th>
+                <td>{{k.Name}}</td>
+              </tr>
+              <tr>
+                <th class="text-dark">Email</th>
+                <td>{{k.Email}}</td>
+              </tr>
+              <tr>
+                <th class="text-dark">D.O.B</th>
+                <td>{{k.DOB}}</td>
+              </tr>
+              <tr>
+                <th class="text-dark">Contact Number</th>
+                <td>{{k.Contact}}</td>
+              </tr>
+
+
+            </table>
+            <!-- {{k.Contact}} -->
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy;<b> PocketFlash </b> 2019</span>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+  </div>
+
+</div>

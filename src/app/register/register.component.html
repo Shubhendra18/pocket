@@ -1,0 +1,31 @@
+<section class="material-half-bg">
+  <div class="cover"></div>
+</section>
+<section class="login-content">
+  <div class="logo">
+    <h1>PocketFlash</h1>
+  </div>
+  <div class="login-box">
+    <form class="login-form" action="index.html" (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm">
+      <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>REGISTER NOW</h3>
+      <div class="form-group">
+        <label class="control-label">Email</label>
+        <input class="form-control" placeholder="Email"  name="email" formControlName="email" autofocus>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Password</label>
+        <input class="form-control" type="password" placeholder="Password" name="password" formControlName="password">
+      </div>
+      <div class="form-group btn-container">
+        <input type="submit" [disabled]="!loginForm.valid" value="Submit" class="btn btn-primary btn-block">
+        <div style="text-align: center">
+          <app-providerlogin></app-providerlogin>
+        </div>
+      </div>
+    </form>
+    <br>
+    <div *ngIf="authService.error != ''">
+      <p>{{authService.error}}</p>
+    </div>
+  </div>
+</section>
